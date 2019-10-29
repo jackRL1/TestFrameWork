@@ -1,7 +1,8 @@
 from selenium import webdriver
 from elements import Element
 
-""" WebDriver is a subclass of the webdriver superclass. its main function
+""" 
+    WebDriver is a subclass of the selenium webdriver class. its main function
     at the moment is to return web elements from the Element class in the 
     elements.py file
     
