@@ -7,6 +7,7 @@ from elements import Element
     
     There are a few other methods for locating or returning true if an element 
     is present or visible or accessible. 
+
 """
 
 
