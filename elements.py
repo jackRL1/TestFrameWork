@@ -6,7 +6,7 @@
 from selenium.webdriver.remote.webelement import WebElement as SelWebEle
 
 
-""" Element is a subclass of webelement. Its used for returning web element objects  """
+""" Element is a subclass of webelement. Returns webelement objects  """
 
 
 class Element(SelWebEle):
