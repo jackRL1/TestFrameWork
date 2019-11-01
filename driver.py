@@ -37,7 +37,31 @@ class WebDriver(webdriver.Firefox):
             return Element(self.find_element_by_xpath(loc_value))
         else:
             raise Exception('bad value')
-
+    
+    """ Method for locating and returning a list of elements """
+    def find_elements_by_locator(self, locate):
+        locate_type, locate_value = locate.split('=')
+        if locate_type == 'class':
+            elements = self.find_elements_by_class_name(locate_value)
+        elif locate_type == 'css':
+            elements = self.find_elements_by_css_selector(locate_value)
+        elif locate_type == 'id':
+            elements = self.find_elements_by_id(locate_value)
+        elif locate_type == 'link':
+            elements = self.find_elements_by_link_text(locate_value)
+        elif locate_type == 'name':
+            elements = self.find_elements_by_name(locate_value)
+        elif locate_type == 'plink':
+            elements = self.find_elements_by_partial_link_text(locate_value)
+        elif locate_type == 'tag':
+            elements = self.find_elements_by_tag_name(locate_value)
+        elif locate_type == 'xpath':
+            elements = self.find_elements_by_xpath(locate_value)
+        else:
+            raise Exception('Bad Locator value')
+        """ returns a list of elements have been found. """
+        return [Element(e) for e in elements]            
+            
     """ return bool of if element exists or not """
     def elem_exists(self, locate):
         try:
@@ -71,7 +95,8 @@ class WebDriver(webdriver.Firefox):
             return True
         except "nope not happening":
             return False
-
+    
+    """ Simply to press a button objects """
     def press_submit(self, text):
         try:
             elem = self.find_element_by_locator(text)
