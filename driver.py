@@ -87,7 +87,10 @@ class WebDriver(webdriver.Firefox):
         else:
             return False
 
-    """ Sends text to specific element that is passed """
+    """ 
+        Sends String to specific element that is passed 
+        Then returns true if sucessful 
+    """
     def enter_text(self, elem, text):
         try:
             e = self.find_element_by_locator(elem)
@@ -96,7 +99,7 @@ class WebDriver(webdriver.Firefox):
         except "nope not happening":
             return False
     
-    """ Simply to press a button objects """
+    """ Simply to press button objects """
     def press_submit(self, text):
         try:
             elem = self.find_element_by_locator(text)
